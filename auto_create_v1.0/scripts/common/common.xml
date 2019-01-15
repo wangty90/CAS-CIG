@@ -1,0 +1,6 @@
+[common]
+atm = ['cam']
+lnd = ['clm']
+ice = ['cice']
+ocn = ['pop']
+glc = ['sglc']

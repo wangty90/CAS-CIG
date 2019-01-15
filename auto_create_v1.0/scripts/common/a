@@ -1,0 +1,120 @@
+294,317c294,295
+< 	@comps  = qw(
+<                      cam
+<                      wrf
+<                      gea
+<                      datm
+<                      clm
+<                      colm
+<                      dlnd
+<                      cice
+<                      dice
+<                      pop2
+<                      licom
+<                      docn
+<                      cism
+<                     );
+< 	@models = qw(
+<                      COMP_ATM
+<                      COMP_WRF
+<                      COMP_GEA
+<                      COMP_LND
+<                      COMP_ICE
+<                      COMP_OCN
+<                      COMP_GLC
+<                     );
+---
+> 	@comps  = qw(cam wrf gea datm clm colm dlnd cice dice pop2 licom docn cism);
+> 	@models = qw(COMP_ATM COMP_WRF COMP_GEA COMP_LND COMP_ICE COMP_OCN COMP_GLC);
+319,331c297
+< 	@groups = qw(
+<                      mach_pes_def mach_pes_desc 
+<                      mach_pes_atm 
+<                      mach_pes_wrf 
+<                      mach_pes_gea 
+<                      mach_pes_srf 
+<                      mach_pes_lnd 
+<                      mach_pes_ice 
+<                      mach_pes_ocn 
+<                      mach_pes_cpl 
+<                      mach_pes_glc 
+<                      mach_pes_stride mach_pes_last
+<                     );
+---
+> 	@groups = qw(mach_pes_def mach_pes_desc mach_pes_atm mach_pes_wrf mach_pes_gea mach_pes_srd mach_pes_lnd mach_pes_ice mach_pes_ocn mach_pes_cpl mach_pes_glc mach_pes_stride mach_pes_last);
+335,338c301
+< 	@groups = qw(run_def run_desc run_stop run_rest run_pio run_flags run_diag run_cplhist run_cpl run_mach run_din run_dout run_last 
+<  		     run_pop2
+<  		     run_licom
+<                     );
+---
+> 	@groups = qw(run_def run_desc run_stop run_rest run_pio run_flags run_diag run_cplhist run_cpl run_mach run_din run_dout run_last run_pop2 run_licom);
+491,493c454,495
+<     if ($self->get("COMP_OCN") eq "pop2") {if ($filename =~ "env_build") { if (($format eq "xml") || ($filename =~ m/xml/)) {  if ($xmode =~ "expert") {self->_write_xml2($fh, "build_pop2");} else { $self->_write_xml($fh, "build_pop2");  print $fh "\n<!-- ====================================== -->"; } } else {$self->_write_env($fh, "build_pop2"); }}if ($filename =~ "env_mach_pes") {   if (($format eq "xml") || ($filename =~ m/xml/)) {$self->_write_xml2($fh, "mach_pes_pop2"); } else {$self->_write_env($fh, "mach_pes_pop2");}}}
+<     if ($self->get("COMP_OCN") eq "licom") {if ($filename =~ "env_build") { if (($format eq "xml") || ($filename =~ m/xml/)) {  if ($xmode =~ "expert") {self->_write_xml2($fh, "build_licom");} else { $self->_write_xml($fh, "build_licom");  print $fh "\n<!-- ====================================== -->"; } } else {$self->_write_env($fh, "build_licom"); }}if ($filename =~ "env_mach_pes") {   if (($format eq "xml") || ($filename =~ m/xml/)) {$self->_write_xml2($fh, "mach_pes_licom"); } else {$self->_write_env($fh, "mach_pes_licom");}}}
+<     if ($self->get("COMP_ICE") eq "cice") {if ($filename =~ "env_build") { if (($format eq "xml") || ($filename =~ m/xml/)) {  if ($xmode =~ "expert") {self->_write_xml2($fh, "build_cice");} else { $self->_write_xml($fh, "build_cice");  print $fh "\n<!-- ====================================== -->"; } } else {$self->_write_env($fh, "build_cice"); }}if ($filename =~ "env_mach_pes") {   if (($format eq "xml") || ($filename =~ m/xml/)) {$self->_write_xml2($fh, "mach_pes_cice"); } else {$self->_write_env($fh, "mach_pes_cice");}}}
+---
+>     if ($self->get("COMP_OCN") eq "pop2") {
+> 	if ($filename =~ "env_build") {
+> 	    if (($format eq "xml") || ($filename =~ m/xml/)) {
+>                if ($xmode =~ "expert") {
+>    		   $self->_write_xml2($fh, "build_pop2");
+> 	       } else {
+> 		   $self->_write_xml($fh, "build_pop2");
+> 		   print $fh "\n<!-- ====================================== -->";
+> 	       }
+> 	    } else {
+> 		$self->_write_env($fh, "build_pop2");
+> 	    }
+> 	}
+> 	if ($filename =~ "env_mach_pes") {
+> 	    if (($format eq "xml") || ($filename =~ m/xml/)) {
+> 		$self->_write_xml2($fh, "mach_pes_pop2");
+> 	    } else {
+> 		$self->_write_env($fh, "mach_pes_pop2");
+> 	    }
+> 	}
+>     }
+>     if ($self->get("COMP_OCN") eq "licom") {
+>         if ($filename =~ "env_build") {
+>             if (($format eq "xml") || ($filename =~ m/xml/)) {
+>                if ($xmode =~ "expert") {
+>                    $self->_write_xml2($fh, "build_licom");
+>                } else {
+>                    $self->_write_xml($fh, "build_licom");
+>                    print $fh "\n<!-- ====================================== -->";
+>                }
+>             } else {
+>                 $self->_write_env($fh, "build_licom");
+>             }
+>         }
+>         if ($filename =~ "env_mach_pes") {
+>             if (($format eq "xml") || ($filename =~ m/xml/)) {
+>                 $self->_write_xml2($fh, "mach_pes_pop2");
+>             } else {
+>                 $self->_write_env($fh, "mach_pes_pop2");
+>             }
+>         }
+>     }
+494a497,517
+>     if ($self->get("COMP_ICE") eq "cice") {
+> 	if ($filename =~ "env_build") {
+> 	    if (($format eq "xml") || ($filename =~ m/xml/)) {
+>                if ($xmode =~ "expert") {
+>  		   $self->_write_xml2($fh, "build_cice");
+> 	       } else {
+>  		   $self->_write_xml($fh, "build_cice");
+> 		   print $fh "\n<!-- ====================================== -->";
+> 	       }
+> 	    } else {
+> 		$self->_write_env($fh, "build_cice");
+> 	    }
+> 	}
+> 	if ($filename =~ "env_mach_pes") {
+> 	    if (($format eq "xml") || ($filename =~ m/xml/)) {
+> 		$self->_write_xml2($fh, "mach_pes_cice");
+> 	    } else {
+> 		$self->_write_env($fh, "mach_pes_cice");
+> 	    }
+> 	}
+>     }
