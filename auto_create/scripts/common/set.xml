@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!--Use formats like examples below to set new compset, component, grid, machines etc.-->
+<settings>
+<!--Platform will read new compset settings below and automatically check and create if new component exist-->
+<compset NAME="B_1850_CAM5X" SHORTNAME="B1850C5X"
+         DESC="All active components, pre-industrial, cam5 physics"
+         COMP_ATM="cam" COMP_LND="colm" COMP_ICE="cice" COMP_OCN="licom" COMP_GLC="sglc"
+         CCSM_CCOST="1"
+         CCSM_CO2_PPMV="284.7"
+         CCSM_BGC="CO2A"
+         CAM_NML_USE_CASE="1850_cam5"
+         CAM_CONFIG_OPTS="-phys cam5"
+         CLM_NML_USE_CASE="1850_control"
+         CLM_CO2_TYPE="diagnostic"
+         CICE_NAMELIST_OPTS="cam5=.true."
+         BUDGETS="TRUE" />
+
+<!--Platform will read new grid settings below and automatically check and create if new GLOB_GRID exist-->
+<horiz_grid GRID="1.4x1.4_licom" SHORTNAME="fd14_licom"
+            ATM_GRID="128x256" LND_GRID="128x256" OCN_GRID="gx1v6" ICE_GRID="licom"
+            ATM_NCPL="48" OCN_NCPL="1"
+            CAM_DYCORE="iap"
+            CCSM_GCOST="0"
+            MAP_A2OF_FILE="IAPGCM_to_licom_aave_da_20140402.nc"
+            MAP_A2OS_FILE="IAPGCM_to_licom_bilin_20140402.nc"
+            MAP_O2AF_FILE="licom_to_IAPGCM_aave_da_20140402.nc"
+            MAP_O2AS_FILE="licom_to_IAPGCM_aave_da_20140402.nc"
+            MAP_A2LF_FILE="idmap"
+            MAP_A2LS_FILE="idmap"
+            MAP_L2AF_FILE="idmap"
+            MAP_L2AS_FILE="idmap"
+            MAP_A2WF_FILE="idmap"
+            MAP_A2WS_FILE="idmap"
+            MAP_W2AF_FILE="idmap"
+            MAP_W2AS_FILE="idmap"
+            MAP_A2GEF_FILE="idmap"
+            MAP_A2GES_FILE="idmap"
+            MAP_GE2AF_FILE="idmap"
+            MAP_GE2AS_FILE="idmap"
+            MAP_R2O_FILE_R05="map_r05_to_licom_eq1x1_100521.nc"
+            MAP_R2O_FILE_RX1="map_rx1_to_gx1v6_e1000r300_090318.nc"
+            DESC="1.4 degree grid for atm/lnd with the version 6 1-degree Greenland pole o    cn/ice grid. Normally used for fully coupled climate runs." />
+
+<!--Platform will read new machine settings below-->
+<machine MACH="yuan_intel"
+         DESC="YUAN (intel), 10 pes/node, no batch system"
+         EXEROOT="/work1/jjr/wangty/CAS_ESM_wty/$CASE"
+         OBJROOT="$EXEROOT"
+         INCROOT="$EXEROOT/lib/include"
+         DIN_LOC_ROOT_CSMDATA="/work1/jjr/wangyz/data/inputdata"
+         DOUT_S_ROOT="/home/scwangty/wangty/CAS_ESM_wty/archive/$CASE"
+         DOUT_L_HTAR="FALSE"
+         DOUT_L_MSROOT="csm/$CASE"
+         OS="Linux"
+         GMAKE_J="2"
+         MAX_TASKS_PER_NODE="10"
+         MPISERIAL_SUPPORT="TRUE" />
+
+</settings>

@@ -1,0 +1,18 @@
+# conf_***.xml: configuration list for different module
+# component set: $comp_conf.xml
+# driver set: conf_ccsm_comp.xml
+# map own set: conf_map.xml
+# map others set: conf_mapping.xml
+# merge set: conf_merger.xml
+# seq set: conf_seq.xml
+# share set: conf_shr.xml
+
+[common]
+atm = ['cam']
+lnd = ['clm']
+ice = ['cice']
+ocn = ['pop']
+glc = ['sglc']
+[other]
+sno = ['sno']
+rof = ['rof']

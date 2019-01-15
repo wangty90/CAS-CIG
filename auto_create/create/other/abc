@@ -1,0 +1,24 @@
+cpl2ccc.F90 dict_cpl2ccc ocn
+['OCN', 'O', 'ocn', 'o', '']
+cpl2ccc.F90 dict_cpl2ccc ice
+['ICE', 'I', 'ice', 'i', 'ice_present .and. icerun_alarm']
+runcccmodel.F90 dict_cpl2ccc ocn
+['OCN', 'O', 'ocn', 'o', '']
+runcccmodel.F90 dict_cpl2ccc ice
+['ICE', 'I', 'ice', 'i', 'ice_present .and. icerun_alarm']
+ccc2cpl.F90 dict_cpl2ccc ocntightcpl
+['OCN', 'O', 'ocn', 'o', 'ocean_tight_coupling .and. ocn_present .and. ocnnext_alarm']
+cpl2ccc.F90 dict_cpl2ccc glc
+['GLC', 'G', 'glc', 'g', 'glc_present .and. sno_prognostic .and. glcrun_alarm']
+ccc2cpl.F90 dict_cpl2ccc ice
+['ICE', 'I', 'ice', 'i', 'ice_present .and. icerun_alarm']
+cpl2ccc.F90 dict_cpl2ccc atm
+['ATM', 'A', 'atm', 'a', 'atm_present .and. atmrun_alarm']
+runcccmodel.F90 dict_cpl2ccc atm
+['ATM', 'A', 'atm', 'a', 'atm_present .and. atmrun_alarm']
+runcccmodel.F90 dict_cpl2ccc glc
+['GLC', 'G', 'glc', 'g', 'glc_present .and. sno_prognostic .and. glcrun_alarm']
+ccc2cpl.F90 dict_cpl2ccc atm
+['ATM', 'A', 'atm', 'a', 'atm_present .and. atmrun_alarm']
+ccc2cpl.F90 dict_cpl2ccc ocnloosecpl
+['OCN', 'O', 'ocn', 'o', '.not. ocean_tight_coupling .and. ocn_present .and. ocnnext_alarm']

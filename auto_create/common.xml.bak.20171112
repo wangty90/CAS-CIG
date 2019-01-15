@@ -1,0 +1,4 @@
+[comp]
+comp = ['atm','lnd','ice','ocn','glc','rof','sno']
+fullname = ['atmosphere','land','ice','ocean','landice','runoff','snow']
+shortname = ['a','l','i','o','g','r','s']

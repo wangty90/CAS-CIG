@@ -1,0 +1,33 @@
+[case]
+casename=['agcm+colm+licom+cice+sglc']
+machine=['yuan']
+grids=[['ATM','fd14'],['OCN','licom']]
+
+[create_newcase]
+srcfile="create_newcase_template"
+desfile="create_newcase"
+allcomp = ['ATM','WRF','GEA','SRD','LND','ICE','OCN','CPL','GLC']
+comp = ['ATM','LND','ICE','OCN','CPL','GLC']
+everycomp = ['cam','wrf','gea','datm','xatm','satm','clm','colm','dlnd','xlnd','slnd','cice','dice','xice','sice','pop2','licom','docn','xocn','socn','camdom','sglc','xglc','cism']
+onecomp = ['atm','lnd','ocn','ice','glc']
+alcomp = ['ATM','WRF','GEA','LND','ICE','OCN','GLC']
+everycompdir = [['cam','atm/cam/bld/cam.cpl7.template'],['wrf','atm/wrf/bld/wrf.cpl7.template'],['gea','chem/geatm/bld/gea.cpl7.template'],['datm','atm/datm/bld/datm.cpl7.template'],['xatm','atm/xatm/bld/xatm.template'],['satm','atm/satm/bld/satm.template'],['clm','lnd/clm/bld/clm.cpl7.template'],['colm','lnd/colm/bld/colm.cpl7.template'],['dlnd','lnd/dlnd/bld/dlnd.cpl7.template'],['xlnd','lnd/xlnd/bld/xlnd.template'],['slnd','lnd/slnd/bld/slnd.template'],['cice','ice/cice/bld/cice.cpl7.template'],['dice','ice/dice/bld/dice.cpl7.template'],['xice','ice/xice/bld/xice.template'],['sice','ice/sice/bld/sice.template'],['pop2','ocn/pop2/bld/pop2.cpl7.template'],['licom','ocn/licom/bld/licom.cpl7.template'],['docn','ocn/docn/bld/docn.cpl7.template'],['xocn','ocn/xocn/bld/xocn.template'],['socn','ocn/socn/bld/socn.template'],['camdom','atm/cam/bld/camdom.cpl7.template'],['sglc','glc/sglc/bld/sglc.template'],['xglc','glc/xglc/bld/xglc.template'],['cism','glc/cism/bld/cism.cpl7.template']]
+dcomp = [['datm','atm/datm/bld/datm.template.streams.xml'],['dlnd','lnd/dlnd/bld/dlnd.template.streams.xml'],['dice','ice/dice/bld/dice.template.streams.xml'],['docn','ocn/docn/bld/docn.template.streams.xml']]
+compmodel = [['atm','ATM'],['wrf','WRF'],['gea','GEA'],['lnd','LND'],['ice','ICE'],['ocn','OCN']]
+gridequal = [['atm','lnd'],['atm','ice'],['atm','ocn']]
+[ConfigCase]
+srcfile="ConfigCase_template.pm"
+desfile="ConfigCase.pm"
+optcomp = ['cam','wrf','gea','datm','clm','colm','dlnd','cice','dice','pop2','licom','docn','cism']
+alcomp = ['ATM','WRF','GEA','LND','ICE','OCN','GLC']
+allcomp = ['atm','wrf','gea','srf','lnd','ice','ocn','cpl','glc']
+ocncomp = ['pop2','licom']
+ocnicecomp = [['OCN','pop2'],['OCN','licom'],['ICE','cice']]
+[configure]
+srcfile="configure_template"
+desfile="configure"
+decomp = [['ICE','cice','CICE','cice'],['OCN','pop2','POP','pop']]
+[generate_resolved]
+srcfile="generate_resolved_template.csh"
+desfile="generate_resolved.csh"
+alcomp = [['ATM','atm',1,'-1'],['WRF','wrf',0,'-1'],['GEA','gea',0,'-1'],['LND','lnd',1,'-2'],['ICE','ice',1,'-3'],['OCN','ocn',1,'-4'],['GLC','glc',1,'-3']]

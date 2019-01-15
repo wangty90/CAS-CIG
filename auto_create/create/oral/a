@@ -1,0 +1,341 @@
+47,53c47,53
+<    use atm_comp_mct, only: atm_init_mct, atm_run_mct, atm_final_mct
+<    use wrf_comp_mct, only: wrf_init_mct, wrf_run_mct, wrf_final_mct  ! juanxiong he
+<    use geatm_comp_mct, only: geatm_init_mct, geatm_run_mct, geatm_final_mct  ! juanxiong he
+<    use lnd_comp_mct, only: lnd_init_mct, lnd_run_mct, lnd_final_mct
+<    use ocn_comp_mct, only: ocn_init_mct, ocn_run_mct, ocn_final_mct
+<    use ice_comp_mct, only: ice_init_mct, ice_run_mct, ice_final_mct
+<    use glc_comp_mct, only: glc_init_mct, glc_run_mct, glc_final_mct
+---
+>     use atm_comp_mct, only: atm_init_mct, atm_run_mct, atm_final_mct   
+>     use wrf_comp_mct, only: wrf_init_mct, wrf_run_mct, wrf_final_mct   
+>     use geatm_comp_mct, only: geatm_init_mct, geatm_run_mct, geatm_final_mct   
+>     use lnd_comp_mct, only: lnd_init_mct, lnd_run_mct, lnd_final_mct   
+>     use ocn_comp_mct, only: ocn_init_mct, ocn_run_mct, ocn_final_mct   
+>     use ice_comp_mct, only: ice_init_mct, ice_run_mct, ice_final_mct   
+>     use glc_comp_mct, only: glc_init_mct, glc_run_mct, glc_final_mct   
+56,60c56,60
+<    use atm_comp_mct, only: atm_register
+<    use lnd_comp_mct, only: lnd_register
+<    use ocn_comp_mct, only: ocn_register
+<    use ice_comp_mct, only: ice_register
+<    use glc_comp_mct, only: glc_register
+---
+>     use atm_comp_mct, only: atm_register
+>     use lnd_comp_mct, only: lnd_register
+>     use ocn_comp_mct, only: ocn_register
+>     use ice_comp_mct, only: ice_register
+>     use glc_comp_mct, only: glc_register
+85,94c85,94
+<    use mrg_x2w_mct      ! wrf merge gridded component (merging, history) by juanxiong he 
+<    use mrg_x2c_mct      ! cam merge gridded component (merging, history) by juanxiong he
+<    use mrg_x2ca_mct      ! cam merge gridded component (merging, history) by juanxiong he
+<    use mrg_x2ge_mct      ! wrf merge gridded component (merging, history) by juanxiong he 
+<    use mrg_x2a_mct      ! atm merge gridded component (merging, history)
+<    use mrg_x2l_mct      ! lnd merge gridded component
+<    use mrg_x2o_mct      ! ocn merge gridded component
+<    use mrg_x2i_mct      ! ice merge gridded component
+<    use mrg_x2g_mct      ! glc merge gridded component
+<    use mrg_x2s_mct      ! sno merge gridded component
+---
+>     use mrg_x2w_mct      ! w merge gridded component
+>     use mrg_x2c_mct      ! c merge gridded component
+>     use mrg_x2ca_mct      ! ca merge gridded component
+>     use mrg_x2ge_mct      ! ge merge gridded component
+>     use mrg_x2a_mct      ! a merge gridded component
+>     use mrg_x2l_mct      ! l merge gridded component
+>     use mrg_x2o_mct      ! o merge gridded component
+>     use mrg_x2i_mct      ! i merge gridded component
+>     use mrg_x2g_mct      ! g merge gridded component
+>     use mrg_x2s_mct      ! s merge gridded component
+97,117c97,116
+<    use map_camcam_mct   ! juanxiong he
+<    use map_wrfwrf_mct   ! juanxiong he
+<    use map_wrfcam_mct   ! juanxiong he
+<    use map_gcamcam_mct   ! juanxiong he
+<    use map_geagea_mct   ! juanxiong he
+<    use map_geacam_mct   ! juanxiong he
+< 
+<    use map_atmlnd_mct   ! atm to lnd coupler component
+<    use map_atmice_mct   ! atm to ice coupler component
+<    use map_atmocn_mct   ! atm to ocn coupler component
+<    use map_iceocn_mct   ! ice to ocn coupler component
+<    use map_rofocn_mct   ! roff to ocn coupler component
+<    use map_snoglc_mct   ! lnd/sno to glc coupler component
+<    use map_ocnocn_mct   ! ocn to ocn coupler component
+<    use map_iceice_mct   ! ice to ice coupler component
+<    use map_lndlnd_mct   ! lnd to lnd coupler component
+<    use map_rofrof_mct   ! lnd to lnd coupler component
+<    use map_atmatm_mct   ! atm to atm coupler component
+<    use map_glcglc_mct   ! glc to glc coupler component
+<    use map_snosno_mct   ! lnd/sno to lnd/sno coupler component
+< 
+---
+>     use map_camcam_mct
+>     use map_wrfwrf_mct
+>     use map_gcamcam_mct
+>     use map_geagea_mct
+>     use map_iceice_mct
+>     use map_lndlnd_mct
+>     use map_rofrof_mct
+>     use map_atmatm_mct
+>     use map_glcglc_mct
+>     use map_snosno_mct
+>     use map_ocnocn_mct
+> 
+>     use map_atmlnd_mct
+>     use map_atmice_mct
+>     use map_atmocn_mct
+>     use map_iceocn_mct
+>     use map_rofocn_mct
+>     use map_snoglc_mct
+>     use map_wrfcam_mct
+>     use map_geacam_mct
+135,159c134,158
+<    type(mct_gsMap)  :: gsMap_aa    ! on component pes
+<    type(mct_gsMap)  :: gsMap_ll
+<    type(mct_gsMap)  :: gsMap_oo
+<    type(mct_gsMap)  :: gsMap_ii
+<    type(mct_gsMap)  :: gsMap_rr
+<    type(mct_gsMap)  :: gsMap_gg
+<    type(mct_gsMap)  :: gsMap_ss
+<    type(mct_gsMap)  :: gsMap_ww   !juanxiong he
+<    type(mct_gsMap)  :: gsMap_cc   !juanxiong he
+<    type(mct_gsMap)  :: gsMap_mm   !juanxiong he
+<    type(mct_gsMap)  :: gsMap_gege   !juanxiong he
+<    type(mct_gsMap)  :: gsMap_caca   !juanxiong he
+< 
+<    type(mct_gsMap)  :: gsMap_ax    ! on cpl pes
+<    type(mct_gsMap)  :: gsMap_lx
+<    type(mct_gsMap)  :: gsMap_ox
+<    type(mct_gsMap)  :: gsMap_ix
+<    type(mct_gsMap)  :: gsMap_rx
+<    type(mct_gsMap)  :: gsMap_gx
+<    type(mct_gsMap)  :: gsMap_sx
+<    type(mct_gsMap)  :: gsMap_cx  !juanxiong he 
+<    type(mct_gsMap)  :: gsMap_wx  !juanxiong he
+<    type(mct_gsMap)  :: gsMap_mx   !juanxiong he
+<    type(mct_gsMap)  :: gsMap_cax  !juanxiong he 
+<    type(mct_gsMap)  :: gsMap_gex  !juanxiong he
+---
+>     type(mct_gsMap)  :: gsMap_aa
+>     type(mct_gsMap)  :: gsMap_ll
+>     type(mct_gsMap)  :: gsMap_oo
+>     type(mct_gsMap)  :: gsMap_ii
+>     type(mct_gsMap)  :: gsMap_rr
+>     type(mct_gsMap)  :: gsMap_gg
+>     type(mct_gsMap)  :: gsMap_ss
+>     type(mct_gsMap)  :: gsMap_ww
+>     type(mct_gsMap)  :: gsMap_cc
+>     type(mct_gsMap)  :: gsMap_mm
+>     type(mct_gsMap)  :: gsMap_gege
+>     type(mct_gsMap)  :: gsMap_caca
+> 
+>     type(mct_gsMap)  :: gsMap_ax
+>     type(mct_gsMap)  :: gsMap_lx
+>     type(mct_gsMap)  :: gsMap_ox
+>     type(mct_gsMap)  :: gsMap_ix
+>     type(mct_gsMap)  :: gsMap_rx
+>     type(mct_gsMap)  :: gsMap_gx
+>     type(mct_gsMap)  :: gsMap_sx
+>     type(mct_gsMap)  :: gsMap_wx
+>     type(mct_gsMap)  :: gsMap_cx
+>     type(mct_gsMap)  :: gsMap_mx
+>     type(mct_gsMap)  :: gsMap_gex
+>     type(mct_gsMap)  :: gsMap_cax
+162,170c161,169
+<    real(r8),pointer :: drv2mdl_aa(:), mdl2drv_aa(:)
+<    real(r8),pointer :: drv2mdl_ll(:), mdl2drv_ll(:)
+<    real(r8),pointer :: drv2mdl_ii(:), mdl2drv_ii(:)
+<    real(r8),pointer :: drv2mdl_oo(:), mdl2drv_oo(:)
+<    real(r8),pointer :: drv2mdl_rr(:), mdl2drv_rr(:)
+<    real(r8),pointer :: drv2mdl_gg(:), mdl2drv_gg(:)
+<    real(r8),pointer :: drv2mdl_ss(:), mdl2drv_ss(:)
+<    real(r8),pointer :: drv2mdl_ww(:), mdl2drv_ww(:)   ! juanxiong he
+<    real(r8),pointer :: drv2mdl_ge(:), mdl2drv_ge(:)   ! juanxiong he
+---
+>     real(r8),pointer :: drv2mdl_aa(:), mdl2drv_aa(:)
+>     real(r8),pointer :: drv2mdl_ll(:), mdl2drv_ll(:)
+>     real(r8),pointer :: drv2mdl_ii(:), mdl2drv_ii(:)
+>     real(r8),pointer :: drv2mdl_oo(:), mdl2drv_oo(:)
+>     real(r8),pointer :: drv2mdl_rr(:), mdl2drv_rr(:)
+>     real(r8),pointer :: drv2mdl_gg(:), mdl2drv_gg(:)
+>     real(r8),pointer :: drv2mdl_ss(:), mdl2drv_ss(:)
+>     real(r8),pointer :: drv2mdl_ww(:), mdl2drv_ww(:)
+>     real(r8),pointer :: drv2mdl_ge(:), mdl2drv_ge(:)
+173,181c172,180
+<    integer          :: atm_nx, atm_ny  ! nx, ny of 2d grid, if known
+<    integer          :: lnd_nx, lnd_ny
+<    integer          :: ice_nx, ice_ny
+<    integer          :: ocn_nx, ocn_ny
+<    integer          :: rof_nx, rof_ny
+<    integer          :: glc_nx, glc_ny
+<    integer          :: sno_nx, sno_ny
+<    integer          :: wrf_nx, wrf_ny  ! juanxiong he
+<    integer          :: geatm_nx, geatm_ny  ! juanxiong he
+---
+>     integer          :: aa_nx, aa_ny
+>     integer          :: ll_nx, ll_ny
+>     integer          :: ii_nx, ii_ny
+>     integer          :: oo_nx, oo_ny
+>     integer          :: rr_nx, rr_ny
+>     integer          :: gg_nx, gg_ny
+>     integer          :: ss_nx, ss_ny
+>     integer          :: ww_nx, ww_ny
+>     integer          :: ge_nx, ge_ny
+189a189,190
+>    type (ESMF_Clock), SAVE       :: EClock_w
+>    type (ESMF_Clock), SAVE       :: EClock_ge
+194,195d194
+<    type (ESMF_Clock)       :: EClock_w  ! juanxiong he for wrf/ccsm4 coupling
+<    type (ESMF_Clock)       :: EClock_ge  ! juanxiong he for wrf/ccsm4 coupling
+201,206c200,206
+<    logical  :: atmrun_alarm           ! atm run alarm
+<    logical  :: wrfrun_alarm           ! wrf run alarm, juanxiong he
+<    logical  :: gearun_alarm           ! gea run alarm, juanxiong he
+<    logical  :: lndrun_alarm           ! lnd run alarm
+<    logical  :: icerun_alarm           ! ice run alarm
+<    logical  :: ocnrun_alarm           ! ocn run alarm
+---
+>    logical  :: atmrun_alarm          ! atm run alarm
+>    logical  :: wrfrun_alarm          ! wrf run alarm
+>    logical  :: gearun_alarm          ! gea run alarm
+>    logical  :: lndrun_alarm          ! lnd run alarm
+>    logical  :: ocnrun_alarm          ! ocn run alarm
+>    logical  :: icerun_alarm          ! ice run alarm
+>    logical  :: glcrun_alarm          ! glc run alarm
+208d207
+<    logical  :: glcrun_alarm           ! glc run alarm
+258d256
+< 
+260c258
+<    logical  :: lnd_present            ! .true.  => land is present
+---
+>    logical  :: lnd_present            ! .true.  => lnd is present
+263c261
+<    logical  :: rof_present            ! .true.  => land runoff is present
+---
+>    logical  :: rof_present            ! .true.  => rof is present
+265,267c263,265
+<    logical  :: wrf_present            ! .true.  => wrf is present, juanxiong he
+<    logical  :: geatm_present            ! .true.  => gea is present, juanxiong he
+<    logical  :: sno_present            ! .true.  => land sno is present
+---
+>    logical  :: sno_present            ! .true.  => sno is present
+>    logical  :: wrf_present            ! .true.  => wrf is present
+>    logical  :: geatm_present            ! .true.  => geatm is present
+273c271
+<    logical  :: ocnrof_prognostic      ! .true.  => ocn comp expects runoff input
+---
+>    logical  :: ocnrof_prognostic         ! .true.  => ocnrof comp expects input
+275,276d272
+<    logical  :: wrf_prognostic         ! .true.  => wrf comp expects input, juanxiong he
+<    logical  :: geatm_prognostic         ! .true.  => gea comp expects input, juanxiong he
+277a274,275
+>    logical  :: wrf_prognostic         ! .true.  => wrf comp expects input
+>    logical  :: geatm_prognostic         ! .true.  => geatm comp expects input
+347,353c345,351
+<    integer  :: nthreads_ATMID         ! OMP atm number of threads
+<    integer  :: nthreads_LNDID         ! OMP lnd number of threads
+<    integer  :: nthreads_ICEID         ! OMP ice number of threads
+<    integer  :: nthreads_OCNID         ! OMP ocn number of threads
+<    integer  :: nthreads_GLCID         ! OMP glc number of threads
+<    integer  :: nthreads_WRFID         ! OMP wrf number of threads, juanxiong he
+<    integer  :: nthreads_GEAID         ! OMP wrf number of threads, juanxiong he
+---
+>     integer  :: nthreads_ATMID         ! OMP ATM number of threads
+>     integer  :: nthreads_LNDID         ! OMP LND number of threads
+>     integer  :: nthreads_ICEID         ! OMP ICE number of threads
+>     integer  :: nthreads_OCNID         ! OMP OCN number of threads
+>     integer  :: nthreads_GLCID         ! OMP GLC number of threads
+>     integer  :: nthreads_WRFID         ! OMP WRF number of threads
+>     integer  :: nthreads_GEAID         ! OMP GEA number of threads
+357,363c355,361
+<    integer  :: nthreads_CPLATMID      ! OMP cpl-atm number of threads
+<    integer  :: nthreads_CPLLNDID      ! OMP cpl-lnd number of threads
+<    integer  :: nthreads_CPLICEID      ! OMP cpl-ice number of threads
+<    integer  :: nthreads_CPLOCNID      ! OMP cpl-ocn number of threads
+<    integer  :: nthreads_CPLGLCID      ! OMP cpl-glc number of threads
+<    integer  :: nthreads_CPLWRFID      ! OMP cpl-glc number of threads, juanxiong he
+<    integer  :: nthreads_CPLGEAID      ! OMP cpl-glc number of threads, juanxiong he
+---
+>     integer  :: nthreads_CPLATMID      ! OMP cpl-ATM number of threads
+>     integer  :: nthreads_CPLLNDID      ! OMP cpl-LND number of threads
+>     integer  :: nthreads_CPLICEID      ! OMP cpl-ICE number of threads
+>     integer  :: nthreads_CPLOCNID      ! OMP cpl-OCN number of threads
+>     integer  :: nthreads_CPLGLCID      ! OMP cpl-GLC number of threads
+>     integer  :: nthreads_CPLWRFID      ! OMP cpl-WRF number of threads
+>     integer  :: nthreads_CPLGEAID      ! OMP cpl-GEA number of threads
+373,388c371,386
+<    integer  :: mpicom_ATMID           ! MPI atm communicator
+<    integer  :: mpicom_LNDID           ! MPI lnd communicator
+<    integer  :: mpicom_ICEID           ! MPI ice communicator
+<    integer  :: mpicom_OCNID           ! MPI ocn communicator
+<    integer  :: mpicom_GLCID           ! MPI glc communicator
+<    integer  :: mpicom_WRFID           ! MPI wrf communicator, juanxiong he
+<    integer  :: mpicom_GEAID           ! MPI wrf communicator, juanxiong he
+< 
+<    integer  :: mpicom_CPLATMID        ! MPI cpl-atm communicator
+<    integer  :: mpicom_CPLLNDID        ! MPI cpl-lnd communicator
+<    integer  :: mpicom_CPLICEID        ! MPI cpl-ice communicator
+<    integer  :: mpicom_CPLOCNID        ! MPI cpl-ocn communicator
+<    integer  :: mpicom_CPLGLCID        ! MPI cpl-glc communicator
+<    integer  :: mpicom_CPLWRFID        ! MPI cpl-wrf communicator, juanxiong he
+<    integer  :: mpicom_CPLGEAID        ! MPI cpl-wrf communicator, juanxiong he
+< 
+---
+>    integer  :: mpicom_ATMID           ! MPI ATM communicator
+>    integer  :: mpicom_LNDID           ! MPI LND communicator
+>    integer  :: mpicom_ICEID           ! MPI ICE communicator
+>    integer  :: mpicom_OCNID           ! MPI OCN communicator
+>    integer  :: mpicom_GLCID           ! MPI GLC communicator
+>    integer  :: mpicom_WRFID           ! MPI WRF communicator
+>    integer  :: mpicom_GEAID           ! MPI GEA communicator
+> 
+>    integer  :: mpicom_CPLATMID        ! MPI cpl-ATM communicator
+>    integer  :: mpicom_CPLLNDID        ! MPI cpl-LND communicator
+>    integer  :: mpicom_CPLICEID        ! MPI cpl-ICE communicator
+>    integer  :: mpicom_CPLOCNID        ! MPI cpl-OCN communicator
+>    integer  :: mpicom_CPLGLCID        ! MPI cpl-GLC communicator
+>    integer  :: mpicom_CPLWRFID        ! MPI cpl-WRF communicator
+>    integer  :: mpicom_CPLGEAID        ! MPI cpl-GEA communicator
+>    
+396,397c394,395
+<    logical  :: iamroot_WRFID          ! WRFID masterproc, juanxiong he
+<    logical  :: iamroot_GEAID          ! GEAID masterproc, juanxiong he
+---
+>    logical  :: iamroot_WRFID          ! WRFID masterproc
+>    logical  :: iamroot_GEAID          ! GEAID masterproc
+400,406c398,404
+<    logical  :: iamin_ATMID            ! pe associated with ATMID
+<    logical  :: iamin_LNDID            ! pe associated with LNDID
+<    logical  :: iamin_ICEID            ! pe associated with ICEID
+<    logical  :: iamin_OCNID            ! pe associated with OCNID
+<    logical  :: iamin_GLCID            ! pe associated with GLCID
+<    logical  :: iamin_WRFID            ! pe associated with WRFID, juanxiong he
+<    logical  :: iamin_GEAID            ! pe associated with WRFID, juanxiong he
+---
+>    logical  :: iamin_ATMID            ! pe associated with {CCC}ID
+>    logical  :: iamin_LNDID            ! pe associated with {CCC}ID
+>    logical  :: iamin_ICEID            ! pe associated with {CCC}ID
+>    logical  :: iamin_OCNID            ! pe associated with {CCC}ID
+>    logical  :: iamin_GLCID            ! pe associated with {CCC}ID
+>    logical  :: iamin_WRFID            ! pe associated with {CCC}ID
+>    logical  :: iamin_GEAID            ! pe associated with {CCC}ID
+413,414c411,412
+<    logical  :: iamin_CPLWRFID         ! pe associated with CPLWRFID, juanxiong he
+<    logical  :: iamin_CPLGEAID         ! pe associated with CPLWRFID, juanxiong he
+---
+>    logical  :: iamin_CPLWRFID         ! pe associated with CPLWRFID
+>    logical  :: iamin_CPLGEAID         ! pe associated with CPLGEAID
+418,419c416,422
+<    integer, pointer :: atm_petlist(:), lnd_petlist(:), ice_petlist(:), ocn_petlist(:), glc_petlist(:), &
+<                        wrf_petlist(:), gea_petlist(:) ! juanxiong he
+---
+>    integer, pointer :: atm_petlist(:)
+>    integer, pointer :: wrf_petlist(:)
+>    integer, pointer :: gea_petlist(:)
+>    integer, pointer :: lnd_petlist(:)
+>    integer, pointer :: ocn_petlist(:)
+>    integer, pointer :: ice_petlist(:)
+>    integer, pointer :: glc_petlist(:)
